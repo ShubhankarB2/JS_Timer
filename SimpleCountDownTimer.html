@@ -1,0 +1,102 @@
+<html>
+<head>
+    <title></title>
+    <style>
+        input{
+            width: 85px;
+            
+            text-align: center;
+        }
+        
+        .container{
+            background-color: mintcream;
+            border: 2px solid black;
+            margin-top: 20px;
+          
+        }
+        
+       
+    </style>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    </head>
+    <body style="margin-top: 20px;">
+           <h3><center>A simple Countdown timer</center></h3>
+        <div class="text-center">
+        <input id="hour"  type="number" placeholder="Hour">
+        <input id="min"  type="number" placeholder="minutes">
+        <input id="sec"  type="number" placeholder="seconds">
+        <br><br><button id="btn" onclick="timerFunc()">Start</button>
+            
+        </div>
+        
+     
+     
+        <div class="container">
+        
+            <div class="col-sm-4 text-center display"><p>Hour</p><h1 id="showhour" style="font-size: 200px;">00</h1></div>
+            <div class="col-sm-4 text-center display"><p>Minute</p><h1 id="showmin" style="font-size: 200px;">00</h1></div>
+            <div class="col-sm-4 text-center display"><p>Seconds</p><h1 id="showsec" style="font-size: 200px;">00</h1></div>
+        </div>
+        
+  
+        
+    <script>
+        var hour;
+        var min;
+        var sec;
+        function countdown(){
+            sec-=1;
+            document.getElementById("showsec").innerHTML=sec;
+         
+           
+            
+             if(sec==0 && min==0 && hour==0){
+                clearInterval(id);
+                 document.getElementById("showhour").innerHTML=0;
+                   document.getElementById("showmin").innerHTML=0;
+                   document.getElementById("showhsec").innerHTML=0;
+                 window.alert("Times Up");
+                 
+                 
+            }
+            
+            if(sec==0)
+                {
+                    min-=1;
+                    document.getElementById("showmin").innerHTML=min;
+                    sec=59;
+                     document.getElementById("showsec").innerHTML=sec;
+                }
+            
+            if(min==-1)
+                {
+                    hour-=1;
+                     document.getElementById("showhour").innerHTML=hour;
+                    
+                    
+                    
+                    min=59;
+                     document.getElementById("showmin").innerHTML=sec;
+                }
+        
+           
+        }
+    function timerFunc(){
+         hour=document.getElementById("hour").value;
+         min=document.getElementById("min").value;
+         sec=document.getElementById("sec").value;
+        document.getElementById("showhour").innerHTML=hour;
+        document.getElementById("showmin").innerHTML=min;
+        document.getElementById("showsec").innerHTML=sec;
+      id=window.setInterval(countdown,1000);
+
+        
+    }
+        </script>
+    </body>
+</html>
